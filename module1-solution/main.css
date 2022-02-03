@@ -1,0 +1,14 @@
+button { display: block; margin: .8em auto; }
+h1     { text-align: center; }
+input  { border-style: solid; text-align: left; width: 20em; }
+label  { margin-right: 1em; vertical-align: top; }
+
+.controller { text-align: center; }
+.inputAndResult { display: inline-block; text-align: left; }
+.result { text-align: left; }
+
+.color_exists { color: green; }
+.color_missing { color: red; }
+
+.border_exists { border-color: green; }
+.border_missing { border-color: red; }
