@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de" ng-app="ShoppingListCheckOff">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List</title>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+
+
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body>
+    <h1>Shopping List</h1>
+    <h2>To Buy</h2>
+    <div ng-controller="ToBuyController as toBuy">
+        <table ng-if="toBuy.items.length">
+            <thead>
+                <tr>
+                    <th>Briefing</th>
+                    <th>Quantity</th>
+                    <th>Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in toBuy.items">
+                    <td>Buy</td>
+                    <td>{{item.quantity}}</td>
+                    <td>{{item.name}}</td>
+                    <td><button ng-click="toBuy.buy($index);">Bought!</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <div ng-if="toBuy.items.length===0">Everything is bought!</div>
+    </div>
+
+    <h2>Already Bought</h2>
+    <div ng-controller="AlreadyBoughtController as alreadyBought">
+        <table ng-if="alreadyBought.items.length">
+            <thead>
+                <tr>
+                    <th>State</th>
+                    <th>Quantity</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in alreadyBought.items">
+                    <td>Bought</td>
+                    <td>{{item.quantity}}</td>
+                    <td>{{item.name}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div ng-if="alreadyBought.items.length===0">Nothing bought yet!</div>
+    </div>
+
+</body>
+
+</html>
