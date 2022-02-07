@@ -1,3 +1,3 @@
 # Kurs-Angular-JS
-Lösung zu Modul 1
+Lösung zu Modul 3
 Angular JS Kurs der Johns Hopkins Universität
