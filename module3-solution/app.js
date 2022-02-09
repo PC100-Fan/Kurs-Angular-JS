@@ -36,7 +36,7 @@
         down.foundItems = null;
 
         down.getMatchedMenuItems = function () {
-            menuSearchService.getMatchedMenuItems(down.searchTerm).then(function (result) {
+            menuSearchService.getMatchedMenuItems(down.searchTerm.toLowerCase()).then(function (result) {
                 down.foundItems = result;
             }).catch(function (error) {
                 down.foundItems = [];
@@ -67,7 +67,7 @@
             }).then(function (result) {
                 // found-Array
                 var foundItems = result.data.menu_items
-                    .filter(menuItem => menuItem.description.indexOf(searchTerm) >= 0)
+                    .filter(menuItem => menuItem.description.toLowerCase().indexOf(searchTerm) >= 0)
                 return foundItems;
             });
         };
