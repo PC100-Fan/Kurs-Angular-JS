@@ -1,0 +1,31 @@
+<!-- used the name "menuItems" instead of "foundItems" -->
+<!-- myFoundItems = null at start -->
+<table ng-if="myFoundItems != null && myFoundItems.length > 0">
+    <thead>
+        <th>Short name</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Action</th>
+    </thead>
+    <tbody>
+        <!-- scope: false (default) in MenuItemDirective()
+                    = kein eigener Scope für die Direktive
+                    = der selbe Scope, wie Parent,
+                    sowie
+             scope: true
+                    = ein eigener Scope für die Directive,
+                    der prototypisch vom Parent vererbt wird
+            erfordern beide down.foundItems, down aus parent Controller
+            und benötigen kein Attribut in der HTML-Directive <menu-item></menu-item>
+        <tr ng-repeat="foundItem in down.foundItems">
+            empfohlen wird scope: {...}
+            z. B.: scope: { foundItems: "<" }
+                   und <menu-item found-items="down.foundItems"></menu-item> -->
+        <tr ng-repeat="foundItem in myFoundItems">
+            <th>{{foundItem.short_name}}</th>
+            <th>{{foundItem.name}}</th>
+            <td>{{foundItem.description}}</td>
+            <td><button ng-click="myRemoveMenuItem( {menuItemIndex: $index});">Don't want this one!</button></td>
+        </tr>
+    </tbody>
+</table>

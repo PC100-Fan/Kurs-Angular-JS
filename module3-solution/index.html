@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="NarrowItDownApp">
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -9,8 +10,16 @@
     <script src='angular.min.js'></script>
     <script src='app.js'></script>
 </head>
-<body ng-app="NarrowItDownApp">
-    <h1>Narrow-It-Down</h1>
 
+<body ng-controller="NarrowItDownController as down">
+    <h1>Narrow-It-Down</h1>
+    <label for="idSearchTerm">Search:</label><input id="idSearchTerm" ng-model="down.searchTerm" />
+    <button ng-click="down.getMatchedMenuItems();">Narrow It Down For Me!</button>
+    <!-- down.foundItems = null at start -->
+    <div class="nothing-found" ng-if="down.foundItems != null && down.foundItems.length === 0">Nothing found!</div>
+    <!--
+    <menu-items></menu-items>  reicht aus bei scope: false (default) oder true -->
+    <menu-items found-items="down.foundItems" on-remove="down.removeMenuItem(menuItemIndex)"></menu-items>
 </body>
+
 </html>

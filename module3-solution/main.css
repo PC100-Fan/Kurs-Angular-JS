@@ -1,0 +1,8 @@
+body { font-size: 1.2em; text-align: center; }
+input { margin: 0 2em  2px 1em; }
+
+table { border: 2px black solid; border-collapse: collapse; margin: 0 auto; }
+td, th { border: 1px black solid; padding: 3px 5px; text-align: left; vertical-align: top; }
+th:nth-child(1), td:nth-child(4) { text-align: center; vertical-align: middle; }
+
+.nothing-found { color: red; font-weight: bold; margin: 10px;}
