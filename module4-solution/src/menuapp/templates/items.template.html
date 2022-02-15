@@ -1,0 +1,32 @@
+<a ui-sref="home">Home</a> &lt;
+<a ui-sref="categories">Speisen-Kategorien</a> &lt;
+{{ menuItemsList.category.name }}
+
+<!-- id, short_name, name, special_instructions, url -->
+<div class="my-title">Category: ({{ menuItemsList.category.short_name }}) {{ menuItemsList.category.name }}</div>
+<div class="my-instruction">{{ menuItemsList.category.special_instructions }}</div>
+
+<!-- id, short_name, name, description, price_small, price_large, small_portion_name, large_portion_name -->
+<table class="menu-items">
+    <thead>
+        <tr>
+            <th>Short name</th>
+            <th>Menu</th>
+            <th>Description</th>
+            <th colspan="2">Small</th>
+            <th colspan="2">Large</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="menuItem in menuItemsList.menuItems">
+            <!-- id, short_name, name, description, price_small, price_large, small_portion_name, large_portion_name -->
+            <th>{{menuItem.short_name}}</th>
+            <td>{{menuItem.name}}</td>
+            <td>{{menuItem.description}}</td>
+            <td>{{menuItem.small_portion_name}}</td>
+            <td>{{menuItem.price_small_formatted}}</td>
+            <td>{{menuItem.large_portion_name}}</td>
+            <td>{{menuItem.price_large_formatted}}</td>
+        </tr>
+    </tbody>
+</table>

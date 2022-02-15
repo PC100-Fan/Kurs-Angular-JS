@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    const mainUrl = "http://davids-restaurant.herokuapp.com/";
+    const mainUrl = "https://davids-restaurant.herokuapp.com/";
     // http://davids-restaurant.herokuapp.com/categories.json
     // http://davids-restaurant.herokuapp.com/menu_items.json
     // http://davids-restaurant.herokuapp.com/menu_items.json?categorie=B

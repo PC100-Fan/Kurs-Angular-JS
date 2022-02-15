@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MenuApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Menu-App</title>
+
+</head>
+
+<body>
+    <h1>Herzlich Willkommen beim Fröhlichen Kirchheimer!</h1>
+
+    <loading-spinner></loading-spinner>
+
+    <ui-view></ui-view>
+
+    <!-- Libraries -->
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-ui-router.min.js"></script>
+
+    <!-- Modules -->
+    <script src="src/menuapp/data.module.js"></script>
+    <script src="src/menuapp/menuapp.module.js"></script>
+    <script src="src/spinner/spinner.module.js"></script>
+
+    <!-- Services -->
+    <script src="src/menuapp/menudata.service.js"></script>
+
+    <!-- Routes -->
+    <script src="src/routes.js"></script>
+
+    <!-- 'MenuApp' module artefacts -->
+    <script src="src/menuapp/categories-list.controller.js"></script>
+    <script src="src/menuapp/menu-items-list.controller.js"></script>
+
+
+    <!-- 'Spinner' module artifacts -->
+    <script src="src/spinner/loadingspinner.component.js"></script>
+
+</body>
+
+</html>
