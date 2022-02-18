@@ -1,0 +1,22 @@
+<a ui-sref="home">Home</a> &lt; <span>Speisen-Kategorien</span>
+
+<!-- id, short_name, name, special_instructions, url -->
+<table class="category-items">
+    <thead>
+        <tr>
+            <th>Short name</th>
+            <th>Category</th>
+            <th>Special instructions</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="categoryItem in categoriesList.categoryItems">
+            <!-- id, short_name, name, special_instructions, url -->
+            <th>{{categoryItem.short_name}}</th>
+            <td><a ui-sref="items({categorieShortName: categoryItem.short_name})">{{categoryItem.name}}</a></td>
+            <td>{{categoryItem.special_instructions}}</td>
+            <td><button ui-sref="items({categorieShortName: categoryItem.short_name})">Menus</button></td>
+        </tr>
+    </tbody>
+</table>

@@ -1,7 +1,12 @@
 <a ui-sref="home">Home</a> &lt; <span>Speisen-Kategorien</span>
 
+<!-- Example 1 for error handling: Display target page with error message -->
+<div class="error-message" ng-if="$ctrl.myCategoryItems.errorObject">Error: {{ $ctrl.myCategoryItems.errorObject.config.url }} --&gt;
+                                                      {{ $ctrl.myCategoryItems.errorObject.status }}
+                                                      {{ $ctrl.myCategoryItems.errorObject.statusText }}</div>
+
 <!-- id, short_name, name, special_instructions, url -->
-<table class="category-items">
+<table class="category-items" ng-if="!$ctrl.myCategoryItems.errorObject">
     <thead>
         <tr>
             <th>Short name</th>
@@ -11,12 +16,17 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="categoryItem in categoriesList.categoryItems">
+        <tr ng-repeat="categoryItem in $ctrl.myCategoryItems">
             <!-- id, short_name, name, special_instructions, url -->
             <th>{{categoryItem.short_name}}</th>
-            <td><a ui-sref="items({categorieShortName: categoryItem.short_name})">{{categoryItem.name}}</a></td>
+
+            <!-- Example for state change via attribute "ui-sref" and state defined in routes.js -->
+            <td><a ui-sref="items({categoryShortName: categoryItem.short_name})">{{categoryItem.name}}</a></td>
             <td>{{categoryItem.special_instructions}}</td>
-            <td><button ui-sref="items({categorieShortName: categoryItem.short_name})">Menus</button></td>
+            <td>
+                <!-- Example for reference binding and state change in category-state.controller.js -->
+                <button ng-click="$ctrl.doListMenus(categoryItem.short_name)">Menus</button>
+            </td>
         </tr>
     </tbody>
 </table>
