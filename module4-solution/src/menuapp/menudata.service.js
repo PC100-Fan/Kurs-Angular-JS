@@ -28,10 +28,9 @@
 
         // id, short_name, name, description, price_small, price_large, small_portion_name, large_portion_name
         service.getItemsForCategory = function (categoryShortName) {
-            // get url from categoryShortName
-
             return $http({
                 method: "GET",
+                // get url with categoryShortName
                 url: menuItemsUrlWithCategoryParameter + categoryShortName
             }).then(function (result) {
                 var foundMenuItemsAndCategory = result.data;

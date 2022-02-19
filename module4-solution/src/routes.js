@@ -43,13 +43,15 @@
                     menuItemsAndCategory: ['menuDataService', '$transition$',
                         function (menuDataService, $transition$) {
                             return menuDataService.getItemsForCategory($transition$.params().categoryShortName)
-                                .catch(function (error) {
+                                /* .catch(function (error) {
                                     // Example 2 for (late) error handling: Do not display target page, display error message with alert.
                                     var errorMsg = "Error: " + error.config.url + "\n" + error.status + " " + error.statusText;
                                     console.log("Error while retrieving the data.\n" + errorMsg);
                                     alert(errorMsg);
+
+                                    // throw error to not display the target page
                                     throw error;
-                                });
+                                }) */;
                         }]
                 }
             });
