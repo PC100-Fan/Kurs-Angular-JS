@@ -1,0 +1,20 @@
+<div class="text-center" ng-controller="InfoController as infoCtrl">
+  <h2>Your data</h2>
+
+  <div class="info-header" ng-if="!infoCtrl.userDataExists">
+    Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a>
+  </div>
+
+  <div class="info-header" ng-if="infoCtrl.userDataExists">
+    <div><span class="infoLabel">Name: </span>{{infoCtrl.user.firstName}}&nbsp;{{infoCtrl.user.lastName}}</div>
+    <div><span class="infoLabel">Email: </span>{{infoCtrl.user.email}}</div>
+    <div><span class="infoLabel">Phone: </span>{{infoCtrl.user.phone}}</div>
+    <div><span class="infoLabel">Your favorite: </span>
+      <span class="favoriteDish">{{infoCtrl.user.favoriteDish}}</span>
+    </div>
+    <div ng-if="!infoCtrl.favoriteDishDoesNotExist">
+      <menu-item ng-if="!infoCtrl.favoriteDishDoesNotExist" menu-item="infoCtrl.menuItem">
+      </menu-item>
+    </div>
+  </div>
+</div>
